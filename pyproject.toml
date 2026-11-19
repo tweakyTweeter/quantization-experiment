@@ -1,0 +1,72 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pgrq"
+version = "0.1.0"
+description = "PGR-Q: Post-training Quantization for LLM Weights"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.9"
+authors = [
+    {name = "PGR-Q Authors"}
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "torch>=2.0.0",
+    "transformers>=4.30.0",
+    "datasets>=2.14.0",
+    "numpy>=1.24.0",
+    "scipy>=1.10.0",
+    "tqdm>=4.65.0",
+    "accelerate>=0.20.0",
+    "safetensors>=0.3.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "isort>=5.12.0",
+    "mypy>=1.0.0",
+]
+baselines = [
+    "bitsandbytes>=0.41.0",
+    "auto-gptq>=0.5.0",
+    "autoawq>=0.1.0",
+]
+all = [
+    "pgrq[dev,baselines]",
+]
+
+[project.scripts]
+pgrq = "pgrq.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["pgrq*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short"
+
+[tool.black]
+line-length = 100
+target-version = ["py39", "py310", "py311"]
+
+[tool.isort]
+profile = "black"
+line_length = 100

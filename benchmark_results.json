@@ -1,0 +1,212 @@
+{
+  "model": "facebook/opt-125m",
+  "eval_dataset": "WikiText-2 test",
+  "eval_tokens": 11254,
+  "baseline_ppl": 24.28,
+  "methods": [
+    {
+      "method": "Baseline (fp32)",
+      "bpw": 32.0,
+      "ppl": 26.04,
+      "time_s": null
+    },
+    {
+      "method": "PGR-Q +2resid+digit4",
+      "bpw": 4.137,
+      "ppl": 30.72,
+      "time_s": 300
+    },
+    {
+      "method": "PGR-Q +2resid+digit2",
+      "bpw": 4.137,
+      "ppl": 31.23,
+      "time_s": 295
+    },
+    {
+      "method": "RTN 4-bit",
+      "bpw": 4.125,
+      "ppl": 31.58,
+      "time_s": 0.1
+    },
+    {
+      "method": "RTN 3-bit",
+      "bpw": 3.125,
+      "ppl": 122.49,
+      "time_s": 0.05
+    },
+    {
+      "method": "PGR-Q +2resid",
+      "bpw": 1.914,
+      "ppl": 4625.05,
+      "time_s": 146
+    },
+    {
+      "method": "RTN 2-bit",
+      "bpw": 2.125,
+      "ppl": 5323.46,
+      "time_s": 0.05
+    },
+    {
+      "method": "PGR-Q base-only",
+      "bpw": 0.804,
+      "ppl": 6158.65,
+      "time_s": 59
+    },
+    {
+      "method": "TurboScalar 4-bit",
+      "bpw": 4.25,
+      "ppl": 464640.64,
+      "time_s": 4.2
+    }
+  ],
+  "ablations": {
+    "A_phase": {
+      "off": {
+        "bpw": 1.491,
+        "ppl": 6262.05
+      },
+      "on": {
+        "bpw": 1.552,
+        "ppl": 6994.04
+      },
+      "winner": "OFF"
+    },
+    "B_scalar_floor": {
+      "beta_max_lloyd": {
+        "bpw": 3.174,
+        "ppl": 4086.36
+      },
+      "digit_planes": {
+        "bpw": 3.983,
+        "ppl": 33.36
+      },
+      "winner": "digit_planes"
+    },
+    "C_rvq_refinement": {
+      "greedy": {
+        "bpw": 1.491,
+        "ppl": 6751.26
+      },
+      "joint": {
+        "bpw": 1.491,
+        "ppl": 9370.32
+      },
+      "winner": "greedy"
+    },
+    "E_codebook_sharing": {
+      "cross_layer": {
+        "bpw": 1.491,
+        "ppl": 8001.49
+      },
+      "per_layer": {
+        "bpw": 0.714,
+        "ppl": 9380.24
+      },
+      "winner": "cross_layer"
+    }
+  },
+  "all_methods": [
+    {
+      "method": "Baseline (fp32)",
+      "bpw": 32.0,
+      "ppl": 24.28,
+      "time": "-"
+    },
+    {
+      "method": "GGUF-Q8_0",
+      "bpw": 8.5,
+      "ppl": 24.25,
+      "time": "0.1s"
+    },
+    {
+      "method": "GGUF-Q5_0",
+      "bpw": 5.5,
+      "ppl": 25.04,
+      "time": "0.1s"
+    },
+    {
+      "method": "GGUF-Q4_K",
+      "bpw": 4.44,
+      "ppl": 26.08,
+      "time": "61s"
+    },
+    {
+      "method": "GGUF-Q4_0",
+      "bpw": 4.5,
+      "ppl": 27.31,
+      "time": "0.1s"
+    },
+    {
+      "method": "AWQ-4b",
+      "bpw": 4.125,
+      "ppl": 27.52,
+      "time": "9s"
+    },
+    {
+      "method": "GPTQ-4b",
+      "bpw": 4.125,
+      "ppl": 27.72,
+      "time": "16s"
+    },
+    {
+      "method": "PGR-Q (full)",
+      "bpw": 4.14,
+      "ppl": 30.72,
+      "time": "300s"
+    },
+    {
+      "method": "RTN-4b",
+      "bpw": 4.125,
+      "ppl": 31.58,
+      "time": "0.1s"
+    },
+    {
+      "method": "GGUF-Q3_K",
+      "bpw": 3.44,
+      "ppl": 37.31,
+      "time": "60s"
+    },
+    {
+      "method": "GPTQ-3b",
+      "bpw": 3.125,
+      "ppl": 62.96,
+      "time": "16s"
+    },
+    {
+      "method": "AWQ-3b",
+      "bpw": 3.125,
+      "ppl": 94.95,
+      "time": "9s"
+    },
+    {
+      "method": "RTN-3b",
+      "bpw": 3.125,
+      "ppl": 122.49,
+      "time": "0.1s"
+    },
+    {
+      "method": "PGR-Q (codebook-only)",
+      "bpw": 1.91,
+      "ppl": 4625,
+      "time": "149s"
+    },
+    {
+      "method": "RTN-2b",
+      "bpw": 2.125,
+      "ppl": 5323,
+      "time": "0.1s"
+    },
+    {
+      "method": "GPTQ-2b",
+      "bpw": 2.125,
+      "ppl": 8060,
+      "time": "16s"
+    },
+    {
+      "method": "GGUF-Q2_K",
+      "bpw": 2.44,
+      "ppl": 9561,
+      "time": "61s"
+    }
+  ]
+}

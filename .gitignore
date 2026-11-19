@@ -1,0 +1,13 @@
+# Local MLflow tracking data and model artifacts
+mlflow.db
+mlflow.db-*
+mlruns/
+
+# Python-generated files
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# OS-generated files
+.DS_Store

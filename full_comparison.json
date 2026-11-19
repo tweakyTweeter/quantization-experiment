@@ -1,0 +1,104 @@
+[
+  {
+    "method": "Baseline (fp32)",
+    "bpw": 32.0,
+    "ppl": 24.28,
+    "time": "-"
+  },
+  {
+    "method": "GGUF-Q8_0",
+    "bpw": 8.5,
+    "ppl": 24.25,
+    "time": "0.1s"
+  },
+  {
+    "method": "GGUF-Q5_0",
+    "bpw": 5.5,
+    "ppl": 25.04,
+    "time": "0.1s"
+  },
+  {
+    "method": "GGUF-Q4_K",
+    "bpw": 4.44,
+    "ppl": 26.08,
+    "time": "61s"
+  },
+  {
+    "method": "GGUF-Q4_0",
+    "bpw": 4.5,
+    "ppl": 27.31,
+    "time": "0.1s"
+  },
+  {
+    "method": "AWQ-4b",
+    "bpw": 4.125,
+    "ppl": 27.52,
+    "time": "9s"
+  },
+  {
+    "method": "GPTQ-4b",
+    "bpw": 4.125,
+    "ppl": 27.72,
+    "time": "16s"
+  },
+  {
+    "method": "PGR-Q (full)",
+    "bpw": 4.14,
+    "ppl": 30.72,
+    "time": "300s"
+  },
+  {
+    "method": "RTN-4b",
+    "bpw": 4.125,
+    "ppl": 31.58,
+    "time": "0.1s"
+  },
+  {
+    "method": "GGUF-Q3_K",
+    "bpw": 3.44,
+    "ppl": 37.31,
+    "time": "60s"
+  },
+  {
+    "method": "GPTQ-3b",
+    "bpw": 3.125,
+    "ppl": 62.96,
+    "time": "16s"
+  },
+  {
+    "method": "AWQ-3b",
+    "bpw": 3.125,
+    "ppl": 94.95,
+    "time": "9s"
+  },
+  {
+    "method": "RTN-3b",
+    "bpw": 3.125,
+    "ppl": 122.49,
+    "time": "0.1s"
+  },
+  {
+    "method": "PGR-Q (codebook-only)",
+    "bpw": 1.91,
+    "ppl": 4625,
+    "time": "149s"
+  },
+  {
+    "method": "RTN-2b",
+    "bpw": 2.125,
+    "ppl": 5323,
+    "time": "0.1s"
+  },
+  {
+    "method": "GPTQ-2b",
+    "bpw": 2.125,
+    "ppl": 8060,
+    "time": "16s"
+  },
+  {
+    "method": "GGUF-Q2_K",
+    "bpw": 2.44,
+    "ppl": 9561,
+    "time": "61s"
+  }
+]
